@@ -2,23 +2,17 @@ package li.cil.oc.example.block;
 
 import li.cil.oc.api.Network;
 import li.cil.oc.api.network.*;
-import li.cil.oc.api.prefab.DriverBlock;
-import net.minecraft.block.Block;
-import net.minecraft.item.ItemStack;
+import li.cil.oc.api.prefab.DriverTileEntity;
 import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.world.World;
-import net.minecraftforge.oredict.OreDictionary;
 
 /**
  * This driver allows interacting with vanilla furnaces via the Adapter block.
  */
-public class DriverFurnace extends DriverBlock {
-    protected DriverFurnace() {
-        // Specify the items that can be 'placed' into the adapter to configure
-        // it for a specific block. We use the wildcard metadata here because
-        // that's what's used for the furnace's rotation.
-        super(new ItemStack(Block.furnaceIdle, 1, OreDictionary.WILDCARD_VALUE),
-                new ItemStack(Block.furnaceBurning, 1, OreDictionary.WILDCARD_VALUE));
+public class DriverFurnace extends DriverTileEntity {
+    @Override
+    public Class<?> getTileEntityClass() {
+        return TileEntityFurnace.class;
     }
 
     @Override
