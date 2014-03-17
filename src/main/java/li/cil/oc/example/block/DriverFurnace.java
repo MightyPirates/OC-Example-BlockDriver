@@ -17,7 +17,7 @@ public class DriverFurnace extends DriverTileEntity {
 
     @Override
     public ManagedEnvironment createEnvironment(World world, int x, int y, int z) {
-        return new Environment((TileEntityFurnace) world.getBlockTileEntity(x, y, z));
+        return new Environment((TileEntityFurnace) world.getTileEntity(x, y, z));
     }
 
     public class Environment extends li.cil.oc.api.prefab.ManagedEnvironment {
