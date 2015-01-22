@@ -1,7 +1,11 @@
 package li.cil.oc.example.block;
 
 import li.cil.oc.api.Network;
-import li.cil.oc.api.network.*;
+import li.cil.oc.api.network.ManagedEnvironment;
+import li.cil.oc.api.network.Visibility;
+import li.cil.oc.api.machine.Arguments;
+import li.cil.oc.api.machine.Callback;
+import li.cil.oc.api.machine.Context;
 import li.cil.oc.api.prefab.DriverTileEntity;
 import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.world.World;
@@ -25,9 +29,9 @@ public class DriverFurnace extends DriverTileEntity {
 
         public Environment(TileEntityFurnace furnace) {
             this.furnace = furnace;
-            node = Network.newNode(this, Visibility.Network).
+            setNode(Network.newNode(this, Visibility.Network).
                     withComponent("furnace").
-                    create();
+                    create());
         }
 
         // The following methods are available to programs running on computers
